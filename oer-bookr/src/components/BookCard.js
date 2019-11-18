@@ -17,23 +17,23 @@ const useStyles = makeStyles({
     },
 });
 
-export default function BookCard() {
+export default function BookCard(props) {
     const classes = useStyles();
-
+    const { title, author, publisher, license, description } = props.book;
     return (
         <Card className={classes.card}>
           <CardActionArea>
-            <CardMedia
-              className={classes.media}
-              src={book.image}
-              title=""
-            />
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
-                <h2>{book.title}</h2>
+                <h2>{title}</h2>
+              </Typography>
+              <Typography gutterBottom variant="h5" component="h4">
+                <h4>{author}</h4>
+                <h4>{publisher}</h4>
+                <h4>{license}</h4>
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-                <p>{book.description}</p>
+                <p>{description}</p>
               </Typography>
             </CardContent>
           </CardActionArea>

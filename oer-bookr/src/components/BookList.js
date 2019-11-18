@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 // action import
 import { getBooks } from '../actions';
 import axiosWithAuth from '../utils/axiosWithAuth';
+// component imports
+import BookCard from './BookCard';
 
 
 const BookList = props => {
@@ -18,10 +20,14 @@ const BookList = props => {
            {props.isFetching && <h3>Books Coming Soon!</h3>}
            {props.error && <div>{props.error.message}</div>}
            {props.books.map((book, id) => {
-               <div className="book" key={id}>
-                   <BookCard />
-                </div>
+               <div className='Book' key={id}>
+                <BookCard book={book} />
+              </div>
            })} 
         </div>
     )
 }
+
+export default connect(state => {
+    return state;
+})(BookList);
