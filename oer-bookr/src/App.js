@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.css';
+// component imports
+import BookList from './components/BookList';
 
 function App() {
   return (
@@ -7,6 +9,7 @@ function App() {
       <header className="App-header">
        <h1>OER Bookr coming soon!</h1>
       </header>
+      <BookList />
     </div>
   );
 }

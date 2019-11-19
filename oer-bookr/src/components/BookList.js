@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { getBooks } from '../actions';
 import axiosWithAuth from '../utils/axiosWithAuth';
 // component imports
+import BookForm from './BookForm';
 import BookCard from './BookCard';
 
 
@@ -19,11 +20,12 @@ const BookList = props => {
         <div>
            {props.isFetching && <h3>Books Coming Soon!</h3>}
            {props.error && <div>{props.error.message}</div>}
-           {props.books.map((book, id) => {
+           <BookForm />
+           {/* {props.books.map((book, id) => {
                <div className='Book' key={id}>
                 <BookCard book={book} />
               </div>
-           })} 
+           })}  */}
         </div>
     )
 }

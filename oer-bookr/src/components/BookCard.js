@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     }
 });
 
-export default function BookCard(props) {
+function BookCard(props) {
     const classes = useStyles();
     const { title, author, publisher, license } = props.book;
     return (
