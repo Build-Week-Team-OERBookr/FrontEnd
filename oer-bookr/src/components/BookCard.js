@@ -1,6 +1,8 @@
 import React from 'react';
 // react-redux imports
 import { connect } from 'react-redux';
+// action imports
+import deleteBook from '../actions';
 
 
 //material ui imports
@@ -13,6 +15,8 @@ const useStyles = makeStyles({
         maxWidth: 345,
     }
 });
+
+
 
 function BookCard(props) {
     const classes = useStyles();
@@ -35,7 +39,7 @@ function BookCard(props) {
             <Button size="small" color="primary">
               Edit
             </Button>
-            <Button size="small" color="primary">
+            <Button size="small" color="primary" onClick={() => deleteBook(props.book.id)}>
               Delete
             </Button>
           </CardActions>

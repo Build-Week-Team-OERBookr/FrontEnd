@@ -2,7 +2,8 @@
 import {
     GET_BOOKS_LOADING, GET_BOOKS_SUCCESS,
     GET_BOOKS_FAILURE, POST_NEW_BOOK_POSTING,
-    POST_NEW_BOOK_SUCCESS, POST_NEW_BOOK_FAILURE
+    POST_NEW_BOOK_SUCCESS, POST_NEW_BOOK_FAILURE,
+    DELETE_BOOK
 } from '../actions';
 
 
@@ -54,6 +55,13 @@ function reducer(state = initialState, action){
                 isFetching: false,
                 error: action.payload,
                 books: []
+            };
+        case DELETE_BOOK:
+            return {
+                ...state,
+                books: {
+                    ...state.filter(book => book.id !== action.payload.id)
+                }
             };
         default:
             return state;

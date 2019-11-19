@@ -32,7 +32,7 @@ export const newBookPosting = () => ({ type: POST_NEW_BOOK_POSTING })
 export const newBookSuccess = () => ({ type: POST_NEW_BOOK_SUCCESS })
 export const newBookFailure = () => ({ type: POST_NEW_BOOK_FAILURE })
 
-// allows you to add a new book to the book list
+// Allows user to add a new book to the book list
 export function postBook(book) {
     return function(dispatch) {
         dispatch(newBookPosting());
@@ -44,17 +44,18 @@ export function postBook(book) {
     }
 }
 
-// const DELETE_BOOK = 'DELETE_BOOK';
+// Allows user to delete book from list
+const DELETE_BOOK = 'DELETE_BOOK';
 
-// export const deleteBookSuccess = () => ({ type: DELETE_BOOK })
+export const deleteBookSuccess = () => ({ type: DELETE_BOOK, payload: book })
 
-// export const deleteBook = () => {
-//     return function(dispatch) {
-//         dispatch(deleteBookSuccess());
-//         return asioxWithAuth()
-//         .delete(`/books/${state.book.id}`)
-//         .then(res => props.history.push('/'))
-//         .catch(err => console.log('Book deleted!', err));
-//     }
-// }
+export const deleteBook = book => {
+    return function(dispatch) {
+        dispatch(deleteBookSuccess());
+        return asioxWithAuth()
+        .delete(`/books/${state.book.id}`)
+        .then(res => props.history.push('/'))
+        .catch(err => console.log('Book deleted!', err));
+    }
+}
 
