@@ -8,14 +8,27 @@ import { Button, TextField, Dialog,
         DialogActions, DialogContent, 
         DialogContentText, DialogTitle } from '@material-ui/core';
 
-export default function FormDialog() {
-    const [open, setOpen] = React.useState(false);
+
+function BookForm(props) {
+    const [open, setOpen] = useState(false);
+    const [values, setValues] = useState({
+        title: '',
+        author: '',
+        publisher: '',
+        license: ''
+    })
     
-    const handleClickOpen = () => {
+    const handleClickOpen = e => {
         setOpen(true);
+        setValues({
+            ...values,
+            [e.target.name]: e.target.value
+        });
     };
     
-    const handleClose = () => {
+    const handleClose = e => {
+        e.preventDefault();
+        props.dispatch(postBook(values));
         setOpen(false);
     };
     return (
@@ -23,27 +36,62 @@ export default function FormDialog() {
           <Button variant="outlined" color="primary" onClick={handleClickOpen}>
             Add Book!
           </Button>
-          <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-            <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+          <Dialog autocomplete='off' open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+            <DialogTitle id="form-dialog-title">Add a Textbook!</DialogTitle>
             <DialogContent>
               <DialogContentText>
-                To subscribe to this website, please enter your email address here. We will send updates
-                occasionally.
+                To add a recommended textbook, please enter all required information below. Thank you for your contribution!
               </DialogContentText>
               <TextField
                 autoFocus
                 margin="dense"
-                id="name"
-                label="Email Address"
-                type="email"
+                id="title"
+                name="title"
+                label="Book Title"
+                onChange={handleClickOpen}
+                type="text"
                 fullWidth
+                required
+              />
+              <TextField
+                autoFocus
+                margin="dense"
+                id="author"
+                name="author"
+                label="Author"
+                onChange={handleClickOpen}
+                type="text"
+                fullWidth
+                required
+              />
+              <TextField
+                autoFocus
+                margin="dense"
+                id="publisher"
+                name="publisher"
+                label="Publisher"
+                onChange={handleClickOpen}
+                type="text"
+                fullWidth
+                required
+              />
+              <TextField
+                autoFocus
+                margin="dense"
+                id="license"
+                name="license"
+                label="license"
+                onChange={handleClickOpen}
+                type="text"
+                fullWidth
+                required
               />
             </DialogContent>
             <DialogActions>
-              <Button onClick={handleClose} color="primary">
+              <Button onClick={() => setOpen(false)} color="primary">
                 Cancel
               </Button>
-              <Button onClick={handleClose} color="primary">
+              <Button type="submit" onClick={handleClose} color="primary">
                 Submit
               </Button>
             </DialogActions>
@@ -51,3 +99,7 @@ export default function FormDialog() {
         </div>
       );
     }
+
+export default connect(state => {
+    return state;
+})(BookForm);
