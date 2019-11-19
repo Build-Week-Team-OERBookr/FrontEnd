@@ -44,3 +44,17 @@ export function postBook(book) {
     }
 }
 
+// const DELETE_BOOK = 'DELETE_BOOK';
+
+// export const deleteBookSuccess = () => ({ type: DELETE_BOOK })
+
+// export const deleteBook = () => {
+//     return function(dispatch) {
+//         dispatch(deleteBookSuccess());
+//         return asioxWithAuth()
+//         .delete(`/books/${state.book.id}`)
+//         .then(res => props.history.push('/'))
+//         .catch(err => console.log('Book deleted!', err));
+//     }
+// }
+
