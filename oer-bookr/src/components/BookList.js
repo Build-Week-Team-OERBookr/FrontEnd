@@ -6,7 +6,8 @@ import { getBooks } from '../actions';
 import axiosWithAuth from '../utils/axiosWithAuth';
 // component imports
 import BookForm from './BookForm';
-import BookCard from './BookCard';
+// import BookCard from './BookCard';
+import SearchBar from './SearchBar';
 
 
 const BookList = props => {
@@ -18,6 +19,7 @@ const BookList = props => {
 
     return (
         <div>
+            <SearchBar />
            {props.isFetching && <h3>Books Coming Soon!</h3>}
            {props.error && <div>{props.error.message}</div>}
            <BookForm />
