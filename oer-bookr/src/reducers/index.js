@@ -10,7 +10,8 @@ import {
 const initialState = {
     books: [],
     error: null,
-    isFetching: false
+    isFetching: false,
+    isEditing: false
 };
 
 function reducer(state = initialState, action){

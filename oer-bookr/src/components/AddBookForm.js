@@ -9,7 +9,8 @@ import { Button, TextField, Dialog,
         DialogContentText, DialogTitle } from '@material-ui/core';
 
 
-function BookForm(props) {
+// Adds a new book to the book list
+function AddBookForm(props) {
     const [open, setOpen] = useState(false);
     const [values, setValues] = useState({
         title: '',
@@ -102,4 +103,4 @@ function BookForm(props) {
 
 export default connect(state => {
     return state;
-})(BookForm);
+})(AddBookForm);

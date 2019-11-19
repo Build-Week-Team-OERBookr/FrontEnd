@@ -26,7 +26,6 @@ function MyAccount() {
         <>
             <div className="SearchAddSection">
                 <SearchBar />
-                {/* add book component */}
             </div>
             <div className="Book-List">
                 <BookList />

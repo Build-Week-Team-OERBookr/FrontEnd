@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 // action imports
 import deleteBook from '../actions';
+import EditBook from './EditBook';
 
 
 //material ui imports
@@ -36,9 +37,7 @@ function BookCard(props) {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button size="small" color="primary">
-              Edit
-            </Button>
+            <EditBook />
             <Button size="small" color="primary" onClick={() => deleteBook(props.book.id)}>
               Delete
             </Button>
