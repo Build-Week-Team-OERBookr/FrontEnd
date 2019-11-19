@@ -11,8 +11,8 @@ import BookCard from './BookCard';
 const BookList = props => {
 
     useEffect(() => {
-        axiosWithAuth()
-        props.dispatch(getBooks())
+        axiosWithAuth();
+        props.dispatch(getBooks());
     }, [])
 
     return (
