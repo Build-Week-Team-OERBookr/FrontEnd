@@ -37,7 +37,7 @@ function AddBookForm(props) {
           <Button variant="outlined" color="primary" onClick={handleClickOpen}>
             Add Book!
           </Button>
-          <Dialog autocomplete='off' open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+          <Dialog autoComplete='off' open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
             <DialogTitle id="form-dialog-title">Add a Textbook!</DialogTitle>
             <DialogContent>
               <DialogContentText>

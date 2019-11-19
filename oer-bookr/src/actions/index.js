@@ -45,17 +45,24 @@ export function postBook(book) {
 }
 
 // Allows user to delete book from list
-const DELETE_BOOK = 'DELETE_BOOK';
+export const DELETE_BOOK = 'DELETE_BOOK';
 
 export const deleteBookSuccess = () => ({ type: DELETE_BOOK, payload: book })
 
 export const deleteBook = book => {
     return function(dispatch) {
         dispatch(deleteBookSuccess());
-        return asioxWithAuth()
-        .delete(`/books/${state.book.id}`)
+        return axiosWithAuth()
+        .delete(`/books/${book.id}`)
         .then(res => props.history.push('/'))
         .catch(err => console.log('Book deleted!', err));
     }
 }
+
+// Allows user to edit book
+
+
+
+
+// Allows user to submit edited book info
 
