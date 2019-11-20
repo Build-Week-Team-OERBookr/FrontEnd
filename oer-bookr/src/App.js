@@ -4,6 +4,8 @@ import Login from './components/Login'
 import SignUp from './components/Signup'
 import Navigation from './components/Navigation'
 import './App.css';
+// component imports
+import BookList from './components/BookList';
 
 function App() {
   return (
@@ -15,12 +17,14 @@ function App() {
           <img className='logoImg' src={require('./DesignFiles/logo.png')} alt='logo'/>
           <Route exact path ='/' component={Login}/>
           <Route exact path='/signup' component={SignUp}/>
+            
         </header>
-        <div>
+        <BookList />
+        
           
         </div>
-      </div>
     </Router>
+
   );
 }
 
