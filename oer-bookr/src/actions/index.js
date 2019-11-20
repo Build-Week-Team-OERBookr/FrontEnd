@@ -1,6 +1,8 @@
 // import axiosWithAuth
-import axiosWithAuth from "../utils/axiosWithAuth";
+// import axiosWithAuth from "../utils/axiosWithAuth";
 
+// delete after login and axiosWithAuth is working.
+import axios from 'axios';
 // Action Types
 export const GET_BOOKS_LOADING = 'GET_BOOKS_LOADING';
 export const GET_BOOKS_SUCCESS = 'GET_BOOKS_SUCCESS';
@@ -14,9 +16,11 @@ export const booksLoadingFailure = error => ({ type: GET_BOOKS_FAILURE, payload:
 export function getBooks() {
     return function(dispatch) {
         dispatch(booksLoading());
-        return axiosWithAuth()
-        .get('/books')
-        .then(res => dispatch(booksLoadingSuccess(res.data)))
+        // return axiosWithAuth()
+        return axios
+        .get('https://oerbookr.herokuapp.com/api/books')
+        .then(res => {console.log('getBooks', res) 
+        dispatch(booksLoadingSuccess(res.data))})
         .catch(err => dispatch(booksLoadingFailure(), err)
         );
     };
@@ -32,15 +36,44 @@ export const newBookPosting = () => ({ type: POST_NEW_BOOK_POSTING })
 export const newBookSuccess = () => ({ type: POST_NEW_BOOK_SUCCESS })
 export const newBookFailure = () => ({ type: POST_NEW_BOOK_FAILURE })
 
-// allows you to add a new book to the book list
+// Allows user to add a new book to the book list
 export function postBook(book) {
     return function(dispatch) {
         dispatch(newBookPosting());
-        return axiosWithAuth()
-        .post('/books', book)
-        .then(res => dispatch(newBookSuccess()))
+        // return axiosWithAuth()
+        return axios
+        .post('https://oerbookr.herokuapp.com/api/books', book)
+        .then(res => dispatch(newBookSuccess(res.data)))
         .catch(err => dispatch(newBookFailure(), err)
         );
     }
 }
+
+// Allows user to delete book from list
+export const DELETE_BOOK = 'DELETE_BOOK';
+
+export const deleteBookLoading = () => ({ type: DELETE_BOOK })
+export const deleteBookSuccess = id => ({ type: DELETE_BOOK, payload: id })
+
+export const deleteBook = book => {
+    return function(dispatch) {
+        dispatch(deleteBookLoading());
+        // return axiosWithAuth()
+        return axios
+        .delete(`https://oerbookr.herokuapp.com/api/books/${book.id}`)
+        .then(res => dispatch(deleteBookSuccess(res.data)))
+        .catch(err => console.log('Book deleted!', err));
+    }
+}
+
+// Allows user to edit book
+// export const EDIT_BOOK = 'EDIT_BOOK';
+
+// export const editBookSuccess = () => ({ type: EDIT_BOOK, payload: book })
+
+// export const editBook
+
+
+
+// Allows user to submit edited book info
 
