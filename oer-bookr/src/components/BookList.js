@@ -3,17 +3,16 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 // action import
 import { getBooks } from '../actions';
-import axiosWithAuth from '../utils/axiosWithAuth';
+// import axiosWithAuth from '../utils/axiosWithAuth';
 // component imports
 import AddBookForm from './AddBookForm';
-// import BookCard from './BookCard';
+import BookCard from './BookCard';
 import SearchBar from './SearchBar';
 
 
 const BookList = props => {
-
+console.log('booklist', props)
     useEffect(() => {
-        axiosWithAuth();
         props.dispatch(getBooks());
     }, [])
 
@@ -23,11 +22,11 @@ const BookList = props => {
            {props.isFetching && <h3>Books Coming Soon!</h3>}
            {props.error && <div>{props.error.message}</div>}
            <AddBookForm />
-           {/* {props.books.map((book, id) => {
+           {props.books && props.books.map((book, id) => (
                <div className='Book' key={id}>
                 <BookCard book={book} />
               </div>
-           })}  */}
+           ))} 
         </div>
     )
 }

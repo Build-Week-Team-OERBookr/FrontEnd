@@ -16,7 +16,11 @@ function AddBookForm(props) {
         title: '',
         author: '',
         publisher: '',
-        license: ''
+        license: '',
+        description: '',
+        avg_rating: '',
+        image: ''
+
     })
     
     const handleClickOpen = e => {
@@ -79,9 +83,31 @@ function AddBookForm(props) {
               <TextField
                 autoFocus
                 margin="dense"
-                id="license"
-                name="license"
-                label="license"
+                id="image"
+                name="image"
+                label="image"
+                onChange={handleClickOpen}
+                type="text"
+                fullWidth
+                required
+              />
+              <TextField
+                autoFocus
+                margin="dense"
+                id="avg_rating"
+                name="avg_rating"
+                label="rating"
+                onChange={handleClickOpen}
+                type="text"
+                fullWidth
+                required
+              />
+              <TextField
+                autoFocus
+                margin="dense"
+                id="description"
+                name="description"
+                label="description"
                 onChange={handleClickOpen}
                 type="text"
                 fullWidth
