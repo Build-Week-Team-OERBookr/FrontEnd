@@ -3,14 +3,13 @@ import {
     GET_BOOKS_LOADING, GET_BOOKS_SUCCESS,
     GET_BOOKS_FAILURE, POST_NEW_BOOK_POSTING,
     POST_NEW_BOOK_SUCCESS, POST_NEW_BOOK_FAILURE,
-    // DELETE_BOOK, 
+    DELETE_BOOK, 
     // EDIT_BOOK
 } from '../actions';
 
 
 const initialState = {
     books: [],
-    book: {},
     error: null,
     isFetching: false,
     isEditing: false
@@ -59,13 +58,11 @@ function reducer(state = initialState, action){
                 error: action.payload,
                 books: []
             };
-        // case DELETE_BOOK:
-        //     return {
-        //         ...state,
-        //         books: {
-        //             ...state.filter(book => book.id !== action.payload.id)
-        //         }
-        //     };
+        case DELETE_BOOK:
+            return {
+                ...state,
+                books: [ state.books.filter(book => book.id !== action.payload)] 
+            };
         // case EDIT_BOOK:
         //     return {
         //         ...state,

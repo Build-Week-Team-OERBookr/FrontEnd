@@ -55,20 +55,21 @@ export function postBook(book) {
 }
 
 // Allows user to delete book from list
-// export const DELETE_BOOK = 'DELETE_BOOK';
+export const DELETE_BOOK = 'DELETE_BOOK';
 
-// export const deleteBookSuccess = () => ({ type: DELETE_BOOK, payload: book })
+export const deleteBookLoading = () => ({ type: DELETE_BOOK })
+export const deleteBookSuccess = id => ({ type: DELETE_BOOK, payload: id })
 
-// export const deleteBook = book => {
-//     return function(dispatch) {
-//         dispatch(deleteBookSuccess());
-//         // return axiosWithAuth()
-//         return axios
-//         .delete(`/book/${book.id}`)
-//         .then(res => props.history.push('/'))
-//         .catch(err => console.log('Book deleted!', err));
-//     }
-// }
+export const deleteBook = book => {
+    return function(dispatch) {
+        dispatch(deleteBookLoading());
+        // return axiosWithAuth()
+        return axios
+        .delete(`https://oerbookr.herokuapp.com/api/books/${book.id}`)
+        .then(res => dispatch(deleteBookSuccess(res.data)))
+        .catch(err => console.log('Book deleted!', err));
+    }
+}
 
 // Allows user to edit book
 // export const EDIT_BOOK = 'EDIT_BOOK';
