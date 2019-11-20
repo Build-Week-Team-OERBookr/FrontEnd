@@ -5,7 +5,7 @@ import SignUp from './components/Signup'
 import Navigation from './components/Navigation'
 import './App.css';
 // component imports
-import BookList from './components/BookList';
+import MyAccount from './components/MyAccount';
 
 function App() {
   return (
@@ -19,9 +19,10 @@ function App() {
           <Route exact path='/signup' component={SignUp}/>
             
         </header>
-        <BookList />
-        
+        <div className='Booklist'>
           
+          <Route exact path = '/myaccount' render={(props) => <MyAccount {...props} /> } />        
+        </div>
         </div>
     </Router>
 

@@ -10,6 +10,7 @@ import {
 
 const initialState = {
     books: [],
+    book: {},
     error: null,
     isFetching: false,
     isEditing: false
@@ -49,7 +50,7 @@ function reducer(state = initialState, action){
                 ...state,
                 isFetching: false,
                 error: null,
-                books: action.payload
+                book: action.payload
             };
         case POST_NEW_BOOK_FAILURE:
             return {

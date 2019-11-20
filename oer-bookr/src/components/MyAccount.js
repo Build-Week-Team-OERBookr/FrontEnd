@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 // import axiosWithAuth from '../utils/axiosWithAuth';
+import BookList from './BookList';
+import SearchBar from './SearchBar';
 
-function MyAccount() {
+function MyAccount(props) {
     // const [user, setUser] = useState({
     //     username: '', 
     //     email: ''
@@ -28,7 +30,7 @@ function MyAccount() {
                 <SearchBar />
             </div>
             <div className="Book-List">
-                <BookList />
+                <BookList props={props} />
             </div>
         </>
     )

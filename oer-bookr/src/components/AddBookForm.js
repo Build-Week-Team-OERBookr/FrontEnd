@@ -34,6 +34,15 @@ function AddBookForm(props) {
     const handleClose = e => {
         e.preventDefault();
         props.dispatch(postBook(values));
+        setValues({
+          title: '',
+          author: '',
+          publisher: '',
+          license: '',
+          description: '',
+          avg_rating: '',
+          image: ''
+        })
         setOpen(false);
     };
     return (

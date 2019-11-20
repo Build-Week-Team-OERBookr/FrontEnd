@@ -19,8 +19,11 @@ export function getBooks() {
         // return axiosWithAuth()
         return axios
         .get('https://oerbookr.herokuapp.com/api/books')
-        .then(res => {console.log('getBooks', res) 
-        dispatch(booksLoadingSuccess(res.data))})
+
+        .then(res => {
+            console.log('getBooks', res) 
+        dispatch(booksLoadingSuccess(res.data))}
+        )
         .catch(err => dispatch(booksLoadingFailure(), err)
         );
     };
@@ -38,12 +41,14 @@ export const newBookFailure = () => ({ type: POST_NEW_BOOK_FAILURE })
 
 // Allows user to add a new book to the book list
 export function postBook(book) {
+    console.log(book)
     return function(dispatch) {
         dispatch(newBookPosting());
         // return axiosWithAuth()
         return axios
         .post('https://oerbookr.herokuapp.com/api/books', book)
-        .then(res => dispatch(newBookSuccess(res.data)))
+        .then(res => {console.log('Add a Book', res);
+            dispatch(newBookSuccess(res.data))})
         .catch(err => dispatch(newBookFailure(), err)
         );
     }
