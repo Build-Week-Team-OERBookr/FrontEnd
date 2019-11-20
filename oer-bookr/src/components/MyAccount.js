@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 // import axiosWithAuth from '../utils/axiosWithAuth';
 import BookList from './BookList';
-import SearchBar from './SearchBar';
+// import SearchBar from './SearchBar';
 
 function MyAccount(props) {
     // const [user, setUser] = useState({
@@ -27,7 +27,7 @@ function MyAccount(props) {
     return (
         <>
             <div className="SearchAddSection">
-                <SearchBar />
+                {/* <SearchBar /> */}
             </div>
             <div className="Book-List">
                 <BookList props={props} />

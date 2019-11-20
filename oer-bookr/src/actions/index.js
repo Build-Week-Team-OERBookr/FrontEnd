@@ -37,7 +37,7 @@ export const POST_NEW_BOOK_FAILURE = 'POST_NEW_BOOK_POSTING';
 
 export const newBookPosting = () => ({ type: POST_NEW_BOOK_POSTING })
 export const newBookSuccess = () => ({ type: POST_NEW_BOOK_SUCCESS })
-export const newBookFailure = () => ({ type: POST_NEW_BOOK_FAILURE })
+export const newBookFailure = error => ({ type: POST_NEW_BOOK_FAILURE, payload: error })
 
 // Allows user to add a new book to the book list
 export function postBook(book) {

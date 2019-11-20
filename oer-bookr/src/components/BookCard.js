@@ -23,6 +23,7 @@ const useStyles = makeStyles({
 
 
 function BookCard(props) {
+  console.log(props)
     const classes = useStyles();
     const { image, title, author, publisher, license, description, avg_rating } = props.book;
 
