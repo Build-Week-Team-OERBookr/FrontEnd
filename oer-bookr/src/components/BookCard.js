@@ -2,8 +2,7 @@ import React from 'react';
 // react-redux imports
 import { connect } from 'react-redux';
 // action imports
-import { deleteBook, getBooks } from '../actions';
-
+// import { deleteBook } from '../actions';
 // import EditBook from './EditBook';
 
 
@@ -24,17 +23,8 @@ const useStyles = makeStyles({
 
 
 function BookCard(props) {
-  console.log('BookCard', props)
     const classes = useStyles();
     const { image, title, author, publisher, license, description, avg_rating } = props.book;
-
-    const deleteItem = e => {
-      e.preventDefault();
-      console.log(props.book.id);
-      props.dispatch(deleteBook(props.book))
-      props.dispatch(getBooks())
-    }; 
-
     return (
         <Card className={classes.card}>
           <CardActionArea>
@@ -60,9 +50,9 @@ function BookCard(props) {
           </CardActionArea>
           <CardActions>
             {/* <EditBook /> */}
-            <Button size="small" color="primary" onClick={deleteItem}>
+            {/* <Button size="small" color="primary" onClick={() => deleteBook(props.book.id)}>
               Delete
-            </Button>
+            </Button> */}
           </CardActions>
         </Card>
     );
