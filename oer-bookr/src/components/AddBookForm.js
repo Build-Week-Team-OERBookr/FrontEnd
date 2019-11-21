@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 // react-redux imports
 import { connect } from 'react-redux';
 // action imports
-import { postBook } from '../actions';
+import { postBook, getBooks } from '../actions';
 // Material-UI imports
 import { makeStyles, Button, TextField, Dialog, 
         DialogActions, DialogContent, 

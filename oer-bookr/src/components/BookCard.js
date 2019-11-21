@@ -2,7 +2,7 @@ import React from 'react';
 // react-redux imports
 import { connect } from 'react-redux';
 // action imports
-import { deleteBook } from '../actions';
+import { deleteBook, getBooks } from '../actions';
 // import EditBook from './EditBook';
 
 

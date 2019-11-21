@@ -7,7 +7,6 @@ import './App.css';
 // component imports
 import MyAccount from './components/MyAccount';
 import PrivateRoute from './components/PrivateRoute';
-import BookCard from './components/BookCard';
 
 function App() {
   
@@ -24,8 +23,7 @@ function App() {
         <div className='Booklist'>
           <Switch>
             <PrivateRoute exact path='/myaccount' component={MyAccount} />
-            <PrivateRoute exact path='/books/:id' component={BookCard} />
-          </Switch>    
+           </Switch>    
         </div>
       </div>
     </Router>

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 // react-redux imports
 import { connect } from 'react-redux';
 // action import
@@ -25,7 +24,7 @@ console.log('booklist', props)
            <AddBookForm />
            <div className='Book' >
            {props.books && props.books.map((book, id) => (
-                <BookCard key={id} book={book} />
+               <BookCard key={id} book={book} />
             ))} 
            </div>
         </>

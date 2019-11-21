@@ -11,8 +11,7 @@ import {
 const initialState = {
     books: [],
     error: null,
-    isFetching: false,
-    isEditing: false
+    isFetching: false
 };
 
 function reducer(state = initialState, action){
@@ -42,26 +41,24 @@ function reducer(state = initialState, action){
                 ...state,
                 isFetching: true, 
                 error: null,
-                books: []
             };
         case POST_NEW_BOOK_SUCCESS:
             return {
                 ...state,
                 isFetching: false,
                 error: null,
-                book: action.payload
+                books: [...state.books, action.payload]
             };
         case POST_NEW_BOOK_FAILURE:
             return {
                 ...state,
                 isFetching: false,
                 error: action.payload,
-                books: []
             };
         case DELETE_BOOK:
             return {
                 ...state,
-                books: [ state.books.filter(book => book.id !== action.payload)] 
+                books: [...state.books.filter(book => book.id !== action.payload)] 
             };
         // case EDIT_BOOK:
         //     return {
