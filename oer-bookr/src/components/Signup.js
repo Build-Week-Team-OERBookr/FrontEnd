@@ -22,15 +22,10 @@ const SignUp = props => {
         }
         axiosWithAuth()
             .post('/auth/registration', user)
-            .then(res => console.log(res.data))
-        // ^^^enables creation of a new user and receives a token from server
-        axiosWithAuth()
-            .post('/auth/login', user)
             .then(res => {
                 localStorage.setItem('token', res.data.token)
                 props.history.push('/myaccount')
             })
-        // ^^ once registered will automatically log user in and bring them to my account page
             .catch(err => console.log('Signup Error', err.message))
     }
 

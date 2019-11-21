@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Login from './components/Login'
-import SignUp from './components/Signup'
+import SignUp from './components/SignUp'
 import Navigation from './components/Navigation'
 import './App.css';
 // component imports
@@ -9,6 +9,7 @@ import MyAccount from './components/MyAccount';
 import PrivateRoute from './components/PrivateRoute';
 
 function App() {
+  const variable = 'hello world'
   return (
     <Router>
       <div className='App'>
@@ -21,7 +22,7 @@ function App() {
         </header>
         <div className='Booklist'>
           <Switch>
-            <PrivateRoute path='/myaccount' render={(props) => <MyAccount {...props} /> } />
+            <PrivateRoute exact path='/myaccount' component={MyAccount} />
           </Switch>    
         </div>
       </div>

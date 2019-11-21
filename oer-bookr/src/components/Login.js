@@ -3,6 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import {BrowserRouter as Router, Link} from 'react-router-dom';
 import axiosWithAuth from '../utils/axiosWithAuth';
+
 const Login = props =>{
     console.log('props', props);
     const [login, setLogin] = useState({
@@ -13,7 +14,7 @@ const Login = props =>{
         setLogin({...login, [event.target.name]: event.target.value})
     }
 
-    const login = e => {
+    const logIn = e => {
         e.preventDefault()
         axiosWithAuth()
         .post('/auth/login', login)
@@ -25,7 +26,7 @@ const Login = props =>{
     }
 
     return (
-            <form className='login' onSubmit={login}>
+            <form className='login' onSubmit={logIn}>
                 <label htmlFor='username'><div>Username</div> 
                     <TextField onChange={handleChanges} name='username' id='username' type='text'></TextField>
                 </label>
