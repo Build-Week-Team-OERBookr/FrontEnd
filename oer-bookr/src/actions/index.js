@@ -1,8 +1,5 @@
-// import axiosWithAuth
-// import axiosWithAuth from "../utils/axiosWithAuth";
+import axiosWithAuth from "../utils/axiosWithAuth";
 
-// delete after login and axiosWithAuth is working.
-import axios from 'axios';
 // Action Types
 export const GET_BOOKS_LOADING = 'GET_BOOKS_LOADING';
 export const GET_BOOKS_SUCCESS = 'GET_BOOKS_SUCCESS';
@@ -16,9 +13,8 @@ export const booksLoadingFailure = error => ({ type: GET_BOOKS_FAILURE, payload:
 export function getBooks() {
     return function(dispatch) {
         dispatch(booksLoading());
-        // return axiosWithAuth()
-        return axios
-        .get('https://oerbookr.herokuapp.com/api/books')
+        return axiosWithAuth()
+        .get('/books')
 
         .then(res => {
             console.log('getBooks', res) 
@@ -44,9 +40,8 @@ export function postBook(book) {
     console.log(book)
     return function(dispatch) {
         dispatch(newBookPosting());
-        // return axiosWithAuth()
-        return axios
-        .post('https://oerbookr.herokuapp.com/api/books', book)
+        return axiosWithAuth()
+        .post('/books', book)
         .then(res => {console.log('Add a Book', res);
             dispatch(newBookSuccess(res.data))})
         .catch(err => dispatch(newBookFailure(), err)
@@ -63,9 +58,8 @@ export const deleteBookSuccess = id => ({ type: DELETE_BOOK, payload: id })
 export const deleteBook = book => {
     return function(dispatch) {
         dispatch(deleteBookLoading());
-        // return axiosWithAuth()
-        return axios
-        .delete(`https://oerbookr.herokuapp.com/api/books/${book.id}`)
+        return axiosWithAuth()
+        .delete(`/books/${book.id}`)
         .then(res => dispatch(deleteBookSuccess(res.data)))
         .catch(err => console.log('Book deleted!', err));
     }

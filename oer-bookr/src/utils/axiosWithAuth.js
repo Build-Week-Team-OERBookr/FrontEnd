@@ -1,19 +1,19 @@
-// import axios from 'axios';
+import axios from 'axios';
 
-// // helper function to enable DRY code
-// export function getToken() {
-//     return localStorage.getItem('token')
-// }
+// Axios helper function
+const axiosWithAuth = () => {
 
-// // Axios helper function
-// const axiosWithAuth = () => {
-//     return axios.create({
-//         baseURL: `https://oerbookr.herokuapp.com/api`,
-//         headers: {
-//             Authorization: getToken()
-//         }
-//     });
-// };
+    const token = localStorage.getItem('token');
+
+    return axios.create({
+        headers: {
+            'Authorization': token,
+            'Content-Type': 'application/json'
+        },
+        baseURL: `https://oerbookr.herokuapp.com/api`
+        
+    });
+};
 
 
-// export default axiosWithAuth
+export default axiosWithAuth
