@@ -23,7 +23,7 @@ const SignUp = props => {
         axios
         .post('https://oerbookr.herokuapp.com/api/auth/registration', user)
         .then(res => console.log(res.data))
-        .catch(err => console.log('Login Error', err.res.message))
+        .catch(err => console.log('Login Error', err.message))
     }
 
     return (
