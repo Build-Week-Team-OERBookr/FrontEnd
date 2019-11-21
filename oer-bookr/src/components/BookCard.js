@@ -35,35 +35,35 @@ function BookCard(props) {
     }; 
 
     return (
-        <Card className={classes.card}>
-          <CardActionArea>
-          <CardMedia
-          className={classes.media}
-          image={image}
-          title="Book"
-        />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-                {title}
-              </Typography>
-              <Typography gutterBottom variant="h5" component="h4">
-                Author: {author}
-                Publisher: {publisher}
-                License: {license}
-                Average rating: {avg_rating}
-              </Typography>
-              <Typography variant="body2" color="textSecondary" component="p">
-                {description}
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-          <CardActions>
-            {/* <EditBook /> */}
-            <Button size="small" color="primary" onClick={deleteItem}>
-              Delete
-            </Button>
-          </CardActions>
-        </Card>
+      <Card className={classes.card}>
+        <CardActionArea>
+        <CardMedia
+        className={classes.media}
+        image={image}
+        title="Book"
+      />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="h2">
+              {title}
+            </Typography>
+            <Typography gutterBottom variant="h5" component="h4">
+              Author: {author}
+              Publisher: {publisher}
+              License: {license}
+              Average rating: {avg_rating}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {description}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions>
+          {/* <EditBook /> */}
+          <Button size="small" color="primary" onClick={deleteItem}>
+            Delete
+          </Button>
+        </CardActions>
+      </Card>
     );
 }
 

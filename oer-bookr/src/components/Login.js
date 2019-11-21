@@ -26,18 +26,17 @@ const Login = props =>{
     }
 
     return (
-            <form className='login' onSubmit={logIn}>
-                <label htmlFor='username'><div>Username</div> 
-                    <TextField onChange={handleChanges} name='username' id='username' type='text'></TextField>
-                </label>
-                <label htmlFor='password'><div>Password</div>
-                    <TextField name='password' id='password' type='text' onChange={handleChanges}></TextField>  
-                </label>
-                <br/>
-                <span><Button type="submit">Login</Button></span>
-                <Link className='signUpPage'  style={{textDecoration: 'none'}} to='/signup'><Button>Sign Up</Button></Link>
-                
-            </form>
+        <form className='login' onSubmit={logIn}>
+            <label htmlFor='username'><div>Username</div> 
+                <TextField onChange={handleChanges} name='username' id='username' type='text'></TextField>
+            </label>
+            <label htmlFor='password'><div>Password</div>
+                <TextField name='password' id='password' type='text' onChange={handleChanges}></TextField>  
+            </label>
+            <br/>
+            <span><Button type="submit">Login</Button></span>
+            <Link className='signUpPage'  style={{textDecoration: 'none'}} to='/signup'><Button>Sign Up</Button></Link>
+        </form>
     )
 }
 

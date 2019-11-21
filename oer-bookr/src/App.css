@@ -54,6 +54,15 @@
 
 .Booklist {
   background: white;
-  margin-top: 600px;
-  margin-bottom: 200px;
+  margin-top: 450px;
+  /* margin-bottom: 200px; */
+}
+
+.Book {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
 }

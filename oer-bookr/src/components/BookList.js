@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 // react-redux imports
 import { connect } from 'react-redux';
 // action import
@@ -18,18 +19,16 @@ console.log('booklist', props)
     }, [])
 
     return (
-        <div>
-          
+        <>
            {props.isFetching && <h3>Books Coming Soon!</h3>}
            {props.error && <div>{props.error.message}</div>}
            <AddBookForm />
+           <div className='Book' >
            {props.books && props.books.map((book, id) => (
-            //    console.log(book)
-               <div className='Book' key={id}>
-                <BookCard book={book} />
-              </div>
-           ))} 
-        </div>
+                <BookCard key={id} book={book} />
+            ))} 
+           </div>
+        </>
     )
 }
 

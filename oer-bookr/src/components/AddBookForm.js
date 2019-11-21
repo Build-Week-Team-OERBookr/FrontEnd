@@ -4,13 +4,27 @@ import { connect } from 'react-redux';
 // action imports
 import { postBook } from '../actions';
 // Material-UI imports
-import { Button, TextField, Dialog, 
+import { makeStyles, Button, TextField, Dialog, 
         DialogActions, DialogContent, 
         DialogContentText, DialogTitle } from '@material-ui/core';
+
+// Material UI styling
+const useStyles = makeStyles({
+  container: {
+    backgroundColor: '#39adbf'
+  },
+
+  button: {
+    color: 'white',
+    backgroundColor: '#174148'
+  }
+})
 
 
 // Adds a new book to the book list
 function AddBookForm(props) {
+  const classes = useStyles();
+
     const [open, setOpen] = useState(false);
     const [values, setValues] = useState({
         title: '',
@@ -34,20 +48,11 @@ function AddBookForm(props) {
     const handleClose = e => {
         e.preventDefault();
         props.dispatch(postBook(values));
-        // setValues({
-        //   title: '',
-        //   author: '',
-        //   publisher: '',
-        //   license: '',
-        //   description: '',
-        //   avg_rating: '',
-        //   image: ''
-        // })
         setOpen(false);
     };
     return (
-        <div>
-          <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+        <div className={classes.container}>
+          <Button variant="outlined" className={classes.button} onClick={handleClickOpen}>
             Add Book!
           </Button>
           <Dialog autoComplete='off' open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
