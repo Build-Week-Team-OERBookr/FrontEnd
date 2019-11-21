@@ -1,6 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 // react-redux imports
 import { connect } from 'react-redux';
+// action imports
+import { deleteBook } from '../actions';
+// import EditBook from './EditBook';
 
 
 //material ui imports
@@ -13,35 +16,50 @@ const useStyles = makeStyles({
         maxWidth: 345,
     },
     media: {
-        height: 140,
+      height: 140,
     },
 });
 
-export default function BookCard(props) {
+
+
+function BookCard(props) {
+  console.log('BookCard', props)
     const classes = useStyles();
-    const { title, author, publisher, license, description } = props.book;
+    const { image, title, author, publisher, license, description, avg_rating } = props.book;
+
+    const deleteItem = e => {
+      e.preventDefault();
+      console.log(props.book.id);
+      props.dispatch(deleteBook(props.book))
+      // props.history.push('/');
+    }; 
+
     return (
         <Card className={classes.card}>
           <CardActionArea>
+          <CardMedia
+          className={classes.media}
+          image={image}
+          title="Book"
+        />
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
-                <h2>{title}</h2>
+                {title}
               </Typography>
               <Typography gutterBottom variant="h5" component="h4">
-                <h4>{author}</h4>
-                <h4>{publisher}</h4>
-                <h4>{license}</h4>
+                Author: {author}
+                Publisher: {publisher}
+                License: {license}
+                Average rating: {avg_rating}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-                <p>{description}</p>
+                {description}
               </Typography>
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button size="small" color="primary">
-              Edit
-            </Button>
-            <Button size="small" color="primary">
+            {/* <EditBook /> */}
+            <Button size="small" color="primary" onClick={deleteItem}>
               Delete
             </Button>
           </CardActions>
