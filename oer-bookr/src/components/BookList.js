@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 // action import
 import { getBooks } from '../actions';
-// import axiosWithAuth from '../utils/axiosWithAuth';
+import axiosWithAuth from '../utils/axiosWithAuth';
 // component imports
 import AddBookForm from './AddBookForm';
 import BookCard from './BookCard';
@@ -14,6 +14,7 @@ const BookList = props => {
 console.log('booklist', props)
     
     useEffect(() => {
+        axiosWithAuth()
         props.getBooks();
         console.log('inside hook', props.books)
     }, [])
@@ -33,6 +34,8 @@ console.log('booklist', props)
         </div>
     )
 }
+
+
 const mapStateToProps=state => {
     console.log('mSTP', state)
     return {
