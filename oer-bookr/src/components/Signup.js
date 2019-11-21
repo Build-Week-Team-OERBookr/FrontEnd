@@ -2,9 +2,10 @@ import React, {useState} from "react";
 import {BrowserRouter as Router, Link} from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button'
-import axiosWithAuth from "../utils/axiosWithAuth";
+import axios from 'axios';
 
 const SignUp = props => {
+    // props.history.push('/myaccount')
     const [signUp, setSignUp] = useState({
         username: "",
         password: ""
@@ -15,14 +16,15 @@ const SignUp = props => {
     }
 
     const register = e => {
+        console.log('register')
         e.preventDefault()
         const user = {
             username: signUp.username,
             password: signUp.password
         }
-        axiosWithAuth()
-            .post('/auth/registration', user)
-            .then(res => {
+        axios
+            .post('https://oerbookr.herokuapp.com/api/auth/registration', user)
+            .then(res => { console.log(res.data)
                 localStorage.setItem('token', res.data.token)
                 props.history.push('/myaccount')
             })
