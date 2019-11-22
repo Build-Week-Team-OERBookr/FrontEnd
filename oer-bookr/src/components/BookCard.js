@@ -2,7 +2,7 @@ import React from 'react';
 // react-redux imports
 import { connect } from 'react-redux';
 // action imports
-import { deleteBook, getBooks } from '../actions';
+import { deleteBook } from '../actions';
 // import EditBook from './EditBook';
 
 
@@ -31,7 +31,6 @@ function BookCard(props) {
       e.preventDefault();
       console.log(props.book.id);
       props.dispatch(deleteBook(props.book))
-      // props.dispatch(getBooks())
     }; 
 
     return (
