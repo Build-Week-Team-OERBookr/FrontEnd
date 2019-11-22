@@ -11,10 +11,12 @@ const navigation = () => {
     }
     
     return(
-        <div className="nav">
-            <Link style={{textDecoration: 'none'}} to='/'>Home</Link>
-            <Link style={{textDecoration: 'none'}} to ='/myaccount'>My Account</Link>
-            <Link style={{textDecoration: 'none'}} onClick={logout} to='/'>Logout</Link>
+        <div className='navcontainer'>
+            <div className='nav'>
+                <Link style={{textDecoration: 'none'}} to='/'>Home</Link>
+                <Link style={{textDecoration: 'none'}} to ='/myaccount'>My Account</Link>
+                <Link style={{textDecoration: 'none'}} onClick={logout} to='/'>Logout</Link>
+            </div>
         </div>
     )
 }
