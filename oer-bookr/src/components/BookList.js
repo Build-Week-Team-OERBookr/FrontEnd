@@ -3,34 +3,39 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 // action import
 import { getBooks } from '../actions';
-// import axiosWithAuth from '../utils/axiosWithAuth';
 // component imports
 import AddBookForm from './AddBookForm';
 import BookCard from './BookCard';
-import SearchBar from './SearchBar';
+// import SearchBar from './SearchBar';
 
 
 const BookList = props => {
 console.log('booklist', props)
+    
     useEffect(() => {
-        props.dispatch(getBooks());
+        props.getBooks();
+        console.log('inside hook', props.books)
     }, [])
 
     return (
-        <div>
-            <SearchBar />
+        <>
            {props.isFetching && <h3>Books Coming Soon!</h3>}
            {props.error && <div>{props.error.message}</div>}
            <AddBookForm />
+           <div className='Book' >
            {props.books && props.books.map((book, id) => (
-               <div className='Book' key={id}>
-                <BookCard book={book} />
-              </div>
-           ))} 
-        </div>
+               <BookCard key={id} book={book} />
+            ))} 
+           </div>
+        </>
     )
 }
 
-export default connect(state => {
-    return state;
-})(BookList);
+
+const mapStateToProps=state => {
+    console.log('mSTP', state)
+    return {
+        books: state.books
+    }
+}
+export default connect(mapStateToProps, {getBooks})(BookList);
