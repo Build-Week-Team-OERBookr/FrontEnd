@@ -13,7 +13,6 @@ function App() {
       <div className='App'>
         <Navigation/>
         <header className='App-header'>
-          <img className='backgroundImg' src={require('./DesignFiles/background.jpg')}></img>
           <img className='logoImg' src={require('./DesignFiles/logo.png')} alt='logo'/>
           <Route exact path ='/' component={Login}/>
           <Route exact path='/signup' component={SignUp}/>
