@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Link} from 'react-router-dom';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 
 
@@ -9,13 +9,13 @@ const navigation = () => {
     const logout = () => {
         localStorage.removeItem('token');
     }
-    
-    return(
+
+    return (
         <div className='navcontainer'>
             <div className='nav'>
-                <Link style={{textDecoration: 'none'}} to='/'>Home</Link>
-                <Link style={{textDecoration: 'none'}} to ='/myaccount'>My Account</Link>
-                <Link style={{textDecoration: 'none'}} onClick={logout} to='/'>Logout</Link>
+                <Link style={{ textDecoration: 'none' }} to='/'>Home</Link>
+                <Link style={{ textDecoration: 'none' }} to='/myaccount'>My Account</Link>
+                <Link style={{ textDecoration: 'none' }} onClick={logout} to='/'>Logout</Link>
             </div>
         </div>
     )

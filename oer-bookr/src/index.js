@@ -10,6 +10,7 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 // component imports
 import reducer from './reducers';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 const store = createStore(
     reducer,

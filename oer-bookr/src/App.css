@@ -8,17 +8,30 @@
 }
 
 .App-header {
+
+
+  min-height: 100vh;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: grey;
+}
+
+body{
+  background-image: url("background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .App-link {
   color: #09d3ac;
 }
+
 
 .login, .signup {
   position:relative;
@@ -39,12 +52,23 @@ body{
   background-size:cover;
 }
 ​
+
+.logo{
+  width:70vh;
+}
+
+Link{
+  color:black;
+}
+
+
 .navcontainer{
   display:flex;
   justify-content:center;
 }
 
 .nav{
+
   position:fixed;
   display:flex;
   justify-content: space-evenly;
@@ -97,3 +121,23 @@ p{
   margin-left: 10px;
   margin-right: 10px;
 }
+
+  display:flex;
+  background-color:white;
+  width:60%;
+  justify-content:space-evenly;
+  padding:2vh 0;
+  border-radius:0px 0px 20px 20px;
+  color:black;
+}
+
+h1{
+  color:teal;
+  font-size:9vh;
+}
+
+p{
+  font-size:3vh;
+  color:lightgrey;
+}
+
