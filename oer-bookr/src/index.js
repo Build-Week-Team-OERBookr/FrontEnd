@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 // component imports
 import reducer from './reducers';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 const store = createStore(
     reducer,
