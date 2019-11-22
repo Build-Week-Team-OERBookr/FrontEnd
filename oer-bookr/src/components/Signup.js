@@ -56,7 +56,7 @@ const SignUp = props => {
                 </label>
                 <label htmlFor='password'>
                     <div>Password</div>
-                    <TextField name='password' id='password' type='text' onChange={handleChanges} />  
+                    <TextField name='password' id='password' type='password' onChange={handleChanges} />  
                 </label>
                 <br/>
                 <Link className='loginPage' style={{textDecoration: 'none'}} to='/'><Button className={classes.button}>Login</Button></Link>
