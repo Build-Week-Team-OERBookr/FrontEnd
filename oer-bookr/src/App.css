@@ -1,11 +1,12 @@
+
 .App {
   text-align: center;
 }
-​
+
 .App-logo {
   height: 40vmin;
 }
-​
+
 .App-header {
   display: flex;
   flex-direction: column;
@@ -14,11 +15,11 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-​
+
 .App-link {
   color: #09d3ac;
 }
-​
+
 .login, .signup {
   position:relative;
   z-index:3;
@@ -30,20 +31,19 @@
   margin-bottom:10vh;
   box-sizing: border-box;
 }
-​
-​
+
 body{
   background-image:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('background.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size:cover;
 }
-​
+
 .navcontainer{
   display:flex;
   justify-content:center;
 }
-​
+
 .nav{
   position:fixed;
   display:flex;
@@ -57,29 +57,30 @@ body{
   padding-bottom:1.5vh;
   padding-top:1.5vh;
 }
-​
-​
+
+
 a{
   color:black;
 }
-​
+
 a:hover{
   color:grey;
 }
-​
+
 .logoImg{
   max-width: 50vh;
   z-index:3;
   padding-top:9vh;
 }
-​
+
 h1{
   color:#39adbf;
   margin:0;
   font-size:6vh;
   margin-bottom:2vh;
 }
-​
+
+
 p{
   font-size:2vh;
   color:grey;
@@ -98,3 +99,4 @@ p{
   margin-left: 10px;
   margin-right: 10px;
 }
+

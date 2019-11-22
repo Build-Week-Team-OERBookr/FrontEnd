@@ -17,6 +17,7 @@ const useStyles = makeStyles({
         border:'2px solid black'
     }
 })
+
 const SignUp = props => {
     const classes = useStyles();
     const [signUp, setSignUp] = useState({
