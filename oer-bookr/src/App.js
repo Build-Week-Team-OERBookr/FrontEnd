@@ -14,12 +14,11 @@ function App() {
     <Router>
       <div className='App'>
         <Navigation/>
-        <div className='App-header'>
-          <img className='backgroundImg' alt='bookshelf' src={require('./DesignFiles/background.jpg')}></img>
+        <header className='App-header'>
           <img className='logoImg' src={require('./DesignFiles/logo.png')} alt='logo'/>
           <Route exact path ='/' component={Login}/>
           <Route exact path='/signup' component={SignUp}/>
-        </div>
+        </header>
         <div className='Booklist'>
           <Switch>
             <PrivateRoute exact path='/myaccount' component={MyAccount} />
